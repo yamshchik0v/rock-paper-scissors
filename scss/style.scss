@@ -1,0 +1,89 @@
+* {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
+body {
+   min-width: 100vw;
+   min-height: 100vh;
+}
+
+#app {
+   padding: 10px;
+   font-family: Arial, sans-serif;
+
+   .title {
+      font-size: 1.5em;
+      color: teal;
+      text-align: center;
+      margin: 20px 0 0 0;
+
+   }
+
+   .choice-block {
+      margin: 10px 0;
+      min-width: 100%;
+
+      .choice-list {
+         margin: 0 auto;
+         max-width: 50%;
+         display: flex;
+         justify-content: space-around;
+         align-items: center;
+         list-style: none;
+         font-size: 3em;
+
+
+
+         .choice-variant {
+            transform: rotate(-90deg);
+            margin: 0 10px;
+            user-select: none;
+            cursor: pointer;
+
+            &:hover {
+               animation: prepick infinite .5s linear alternate;
+            }
+
+            &:active {
+               transform: rotate(-80deg) scale(.9);
+            }
+         }
+      }
+   }
+
+   .sides {
+      display: flex;
+      justify-content: space-around;
+
+      .start-button {
+         padding: 7px 20px;
+         border: 5px solid gold;
+         background: teal;
+         color: white;
+         border-radius: 5px;
+         cursor: pointer;
+
+         &:active {
+            transform: scale(.98);
+         }
+      }
+   }
+
+}
+
+@keyframes prepick {
+   0% {
+      transform: rotate(-90deg);
+   }
+
+   50% {
+      transform: rotate(-80deg);
+   }
+
+   100% {
+      transform: rotate(-70deg);
+   }
+
+}

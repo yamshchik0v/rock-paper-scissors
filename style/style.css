@@ -1,0 +1,116 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+#app {
+  padding: 10px;
+  font-family: Arial, sans-serif;
+}
+
+#app .title {
+  font-size: 1.5em;
+  color: teal;
+  text-align: center;
+  margin: 20px 0 0 0;
+}
+
+#app .choice-block {
+  margin: 10px 0;
+  min-width: 100%;
+}
+
+#app .choice-block .choice-list {
+  margin: 0 auto;
+  max-width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  list-style: none;
+  font-size: 3em;
+}
+
+#app .choice-block .choice-list .choice-variant {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  margin: 0 10px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+}
+
+#app .choice-block .choice-list .choice-variant:hover {
+  -webkit-animation: prepick infinite .5s linear alternate;
+          animation: prepick infinite .5s linear alternate;
+}
+
+#app .choice-block .choice-list .choice-variant:active {
+  -webkit-transform: rotate(-80deg) scale(0.9);
+          transform: rotate(-80deg) scale(0.9);
+}
+
+#app .sides {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+#app .sides .start-button {
+  padding: 7px 20px;
+  border: 5px solid gold;
+  background: teal;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#app .sides .start-button:active {
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
+}
+
+@-webkit-keyframes prepick {
+  0% {
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+  }
+  50% {
+    -webkit-transform: rotate(-80deg);
+            transform: rotate(-80deg);
+  }
+  100% {
+    -webkit-transform: rotate(-70deg);
+            transform: rotate(-70deg);
+  }
+}
+
+@keyframes prepick {
+  0% {
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+  }
+  50% {
+    -webkit-transform: rotate(-80deg);
+            transform: rotate(-80deg);
+  }
+  100% {
+    -webkit-transform: rotate(-70deg);
+            transform: rotate(-70deg);
+  }
+}
