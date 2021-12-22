@@ -58,11 +58,48 @@ body {
       justify-content: space-around;
       align-items: center;
 
+      .versus {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         color: crimson;
+         font-family: serif;
+         font-size: 1.6em;
+
+      }
+
       .player-side {
+         position: relative;
          display: flex;
          flex-flow: column nowrap;
          justify-content: center;
          align-items: center;
+         text-align: center;
+
+         .side-title {
+            font-size: 1.5em;
+            color: royalblue;
+         }
+
+         .history {
+            transform: rotate(-90deg);
+            font-size: 1.6em;
+            opacity: .3;
+         }
+
+         .history-current {
+            font-size: 3.4em;
+            opacity: 1;
+            border-radius: 50%;
+         }
+
+      }
+
+      #computer {
+         .history {
+            transform: rotate(-90deg) scale(-1);
+         }
       }
 
    }

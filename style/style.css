@@ -74,7 +74,19 @@ body {
           align-items: center;
 }
 
+#app .sides .versus {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: crimson;
+  font-family: serif;
+  font-size: 1.6em;
+}
+
 #app .sides .player-side {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -88,6 +100,30 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  text-align: center;
+}
+
+#app .sides .player-side .side-title {
+  font-size: 1.5em;
+  color: royalblue;
+}
+
+#app .sides .player-side .history {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  font-size: 1.6em;
+  opacity: .3;
+}
+
+#app .sides .player-side .history-current {
+  font-size: 3.4em;
+  opacity: 1;
+  border-radius: 50%;
+}
+
+#app .sides #computer .history {
+  -webkit-transform: rotate(-90deg) scale(-1);
+          transform: rotate(-90deg) scale(-1);
 }
 
 @-webkit-keyframes prepick {

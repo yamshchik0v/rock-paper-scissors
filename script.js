@@ -12,9 +12,11 @@ class RockPaperScissors {
          })
       })
    }
+   
    play(variant) {
-      this.render.player.append('\n scissors')
       console.log(variant)
+      this.render.createStory(variant, player)
+      this.render.createStory('scissors', computer)
    }
 }
 
@@ -37,10 +39,11 @@ class Render {
       this.player = this.createElement('div', 'player-side', 'player', '');
       this.versus = this.createElement( 'div', 'versus', '', 'VS');
       this.computer = this.createElement('div', 'player-side', 'computer', '');
-      this.player.append(this.createElement('div', '', '', 'Player'));
-      this.computer.append(this.createElement('div', '', '', 'Computer'));
+      this.player.append(this.createElement('div', 'side-title', '', 'Player'));
+      this.computer.append(this.createElement('div', 'side-title', '', 'Computer'));
 
-      this.sides.append(this.player, this.versus, this.computer)
+      this.sides.append(this.computer, this.versus, this.player)
+      // this.sides.append(this.player, this.versus, this.computer)
       
       this.app.append(this.title);
       this.app.append(this.choiceBlock);
@@ -50,10 +53,23 @@ class Render {
 
    createElement( eName, eClass, eID, eInnerText ) {
       const elem = document.createElement( eName );
-      if ( eClass ) elem.classList.add( eClass );
+      if ( eClass ) elem.classList.add(eClass);
       if ( eID ) elem.id = eID;
       if ( eInnerText ) elem.innerText = eInnerText;
       return elem
+   }
+
+   createStory(variant, side) {
+      let emoji = '';
+      if ( variant === 'rock' )  emoji = '✊🏼';
+      if ( variant === 'paper' )  emoji = '✋🏼';
+      if ( variant === 'scissors' )  emoji = '✌🏼';
+      Array.from(side.children).forEach(e => e.classList.remove('history-current'))
+      let currentElem = this.createElement('div', 'history', '' , emoji);
+      currentElem.classList.add('history-current');
+      side.firstElementChild.after(currentElem)
+      
+      
    }
 }
 
