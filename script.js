@@ -14,9 +14,17 @@ class RockPaperScissors {
    }
    
    play(variant) {
-      console.log(variant)
+      const computerVariant = this.computer().id;
+      console.log(`my choice ${variant} | computer's: ${computerVariant}`);
       this.render.createStory(variant, player)
-      this.render.createStory('scissors', computer)
+      this.render.createStory(computerVariant, computer)
+   }
+
+   computer() {
+      function getRandom (arr) {
+         return Math.floor(Math.random() * arr.length)
+      }
+      return this.variants[getRandom(this.variants)]
    }
 }
 
@@ -34,7 +42,6 @@ class Render {
       this.choiceList.append( this.rock, this.paper, this.scissors );
       this.choiceBlock.append( this.choiceList );
       
-      
       this.sides = this.createElement('section', 'sides');
       this.player = this.createElement('div', 'player-side', 'player', '');
       this.versus = this.createElement( 'div', 'versus', '', 'VS');
@@ -42,8 +49,7 @@ class Render {
       this.player.append(this.createElement('div', 'side-title', '', 'Player'));
       this.computer.append(this.createElement('div', 'side-title', '', 'Computer'));
 
-      this.sides.append(this.computer, this.versus, this.player)
-      // this.sides.append(this.player, this.versus, this.computer)
+      this.sides.append(this.computer, this.versus, this.player);
       
       this.app.append(this.title);
       this.app.append(this.choiceBlock);
@@ -56,7 +62,7 @@ class Render {
       if ( eClass ) elem.classList.add(eClass);
       if ( eID ) elem.id = eID;
       if ( eInnerText ) elem.innerText = eInnerText;
-      return elem
+      return elem;
    }
 
    createStory(variant, side) {
@@ -64,11 +70,10 @@ class Render {
       if ( variant === 'rock' )  emoji = '✊🏼';
       if ( variant === 'paper' )  emoji = '✋🏼';
       if ( variant === 'scissors' )  emoji = '✌🏼';
-      Array.from(side.children).forEach(e => e.classList.remove('history-current'))
+      Array.from(side.children).forEach(e => e.classList.remove('history-current'));
       let currentElem = this.createElement('div', 'history', '' , emoji);
       currentElem.classList.add('history-current');
-      side.firstElementChild.after(currentElem)
-      
+      side.firstElementChild.after(currentElem);
       
    }
 }

@@ -75,11 +75,9 @@ body {
 }
 
 #app .sides .versus {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  -ms-flex-item-align: start;
+      -ms-grid-row-align: start;
+      align-self: start;
   color: crimson;
   font-family: serif;
   font-size: 1.6em;
