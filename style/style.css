@@ -12,6 +12,7 @@ body {
 
 #app {
   padding: 10px;
+  height: 100vh;
   font-family: Arial, sans-serif;
 }
 
@@ -56,11 +57,15 @@ body {
 #app .choice-block .choice-list .choice-variant:hover {
   -webkit-animation: prepick infinite .5s linear alternate;
           animation: prepick infinite .5s linear alternate;
+  -webkit-transform: rotate(-90deg) scale(1.3);
+          transform: rotate(-90deg) scale(1.3);
 }
 
-#app .choice-block .choice-list .choice-variant:active {
-  -webkit-transform: rotate(-80deg) scale(0.9);
-          transform: rotate(-80deg) scale(0.9);
+#app .result {
+  text-align: center;
+  font-family: serif;
+  margin: 15px 0;
+  font-size: 1.3em;
 }
 
 #app .sides {
@@ -72,6 +77,10 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 #app .sides .versus {
@@ -84,6 +93,7 @@ body {
 }
 
 #app .sides .player-side {
+  min-width: 40%;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
